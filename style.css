@@ -1,0 +1,54 @@
+/* The site's only stylesheet. Plain HTML: browser serif, classic underlined
+   blue links, a centred 1000px column (karpathy.ai's width) and almost
+   nothing else. Dark mode follows
+   the visitor's system setting. */
+:root { --bg:#fff; --fg:#000; --link:#0000ee; --vis:#551a8b; --dim:#555; --rule:#888; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root { --bg:#000; --fg:#ddd; --link:#8cb4ff; --vis:#c79cff; --dim:#999; --rule:#666; color-scheme: dark; } }
+
+body { background: var(--bg); color: var(--fg); font: 17px/1.45 "Times New Roman", Times, serif; margin: 0; -webkit-text-size-adjust: 100%; }
+main { box-sizing: border-box; max-width: 1000px; margin: 0 auto; padding: 1em 15px 2em; }
+a { color: var(--link); }
+a:visited { color: var(--vis); }
+
+header { display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5em; }
+.portrait { order: 1; flex: none; width: 110px; height: auto; }
+h1 { font-size: 2.1em; line-height: 1.1; margin: 0; }
+.tagline { margin: .25em 0 0; color: var(--dim); font-style: italic; }
+nav.social { display: flex; gap: 16px; margin-top: .75em; }
+nav.social a { color: var(--link); line-height: 0; padding: 2px; margin: -2px; }
+nav.social svg { width: 19px; height: 19px; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+hr { margin: 1.1em 0 1em; border: 0; border-top: 1px solid var(--rule); }
+h2 { font-size: 1.35em; margin: 1.4em 0 .4em; }
+
+ul.dated, ul.plain, ul.pubs { list-style: none; padding: 0; }
+ul.dated li { display: flex; gap: 1.2em; align-items: baseline; margin-top: .4em; }
+ul.dated .date { flex: 0 0 6.5em; }
+ul.pubs li { padding-left: 2em; text-indent: -2em; overflow-wrap: anywhere; margin-top: .7em; }
+.pubnote { display: inline-block; text-indent: 0; font-style: italic; }
+
+.timeline { margin-top: 1em; }
+.timeline .entry { display: grid; grid-template-columns: 7em 62px 1fr; }
+.timeline .timespan { padding: 1px 10px 0 0; text-align: right; color: var(--dim); font-size: .9em; }
+.timeline .ico { position: relative; border-left: 1px solid var(--rule); }
+.timeline .entry-dot { position: absolute; top: 7px; left: -4px; width: 7px; height: 7px; background: var(--fg); }
+.timeline .ico img { display: block; width: 38px; height: auto; margin-left: 13px; }
+.timeline .ico img.square { width: 32px; margin: 5px 0 0 16px; }
+.timeline .desc { padding: 0 0 1.6em 4px; }
+.timeline .entry:last-child .desc { padding-bottom: 0; }
+
+.projects { margin-top: .6em; }
+.project { padding: .6em 0; border-bottom: 1px solid var(--rule); }
+.project:last-child { border-bottom: 0; }
+
+footer { margin-top: 2.5em; font-size: .9em; }
+footer p { margin: .2em 0; }
+
+@media (max-width: 560px) {
+  .portrait { width: 80px; }
+  h1 { font-size: 1.7em; }
+  ul.dated li { flex-direction: column; gap: 0; }
+  ul.dated .date { flex: none; }
+  .timeline .entry { grid-template-columns: 5.2em 50px 1fr; }
+  .timeline .ico img { width: 30px; margin-left: 10px; }
+}
